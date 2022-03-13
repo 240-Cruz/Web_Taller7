@@ -1,0 +1,36 @@
+{% extends './base.html' %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}"> {% endblock %} {% block content %} {% load static %}
+<div class="container">
+    <div class="mb-3">
+        {% block titulo_pagina %}{% endblock %} {% block boton_nuevo %}{% endblock %}
+    </div>
+    <div class="row">
+        <div class="container col-12 mt-5">
+            <table class="table">
+                <thead>
+                    {% block cabecera_tabla %}{% endblock %}
+                </thead>
+                <tbody>
+                    {% block cuerpo_tabla %}{% endblock %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="modalFormContainer" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            <!--FORMULARIO CREAR DOCUMENTO-->
+            <div id="modalBody">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
