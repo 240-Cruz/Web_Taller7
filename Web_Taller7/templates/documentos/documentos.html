@@ -1,0 +1,21 @@
+{% extends '../base_paginas.html' %} {% load static %} {% block titulo_pagina %}
+<h1>Documentos</h1>
+{% endblock %} {% block boton_nuevo %}
+<input type="button" id="btnCreate" onclick="btnCreate('creardocumento', 'Crear documento', 'Crear')" class="btn btn-success" value="Crear documento"> {% endblock %} {% block cabecera_tabla %}
+<th scope="col">#</th>
+<th scope="col">Nombre</th>
+<th scope="col">Descripcion</th>
+<th scope="col">Accion</th>
+{% endblock %} {% block cuerpo_tabla %} {%if tDocumento %} {% for documento in tDocumento %}
+<tr id="tr-documento-{{documento.id}}">
+    <th scope="row">{{forloop.counter}}</th>
+    <td id="tr-nombre-{{documento.id}}">{{documento.nombre}}</td>
+    <td id="tr-descripcion-{{documento.id}}">{{documento.descripcion}}</td>
+    <td>
+        <div>
+            <input type="button" value="Actualizar" onclick="btnUpdate('{{documento.id}}','actualizardocumento', 'Actualizar documento', 'Actualizar')">
+            <input type="button" value="Eliminar" onclick="btnDelete('{{documento.id}}', 'eliminardocumento')">
+        </div>
+    </td>
+</tr>
+{% endfor %} {% endif %} {% endblock %}
